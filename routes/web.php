@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
     
 });
-Route::resource('products', 'ProductController');
 Route::post('products/{product}/reviews', 'ReviewController@store');
+Route::resource('products', 'ProductController');
+Route::get('products/{product}/favorite', 'ProductController@favorite')->name('products.favorite');
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
