@@ -2,12 +2,13 @@
 
 namespace App;
 
+use App\Notifications\CustomVerifyEmail;
+use App\Notifications\CustomResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Notifications\CustomVerifyEmail;
-use App\Notifications\CustomResetPassword;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
+
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -20,7 +21,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token) {
         $this->notify(new CustomResetPassword($token));
     }
-
 
     /**
      * The attributes that are mass assignable.
