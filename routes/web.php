@@ -14,6 +14,9 @@
 if (env('APP_ENV') === 'production') {
     URL::forceScheme('https');
 }
+
+URL::forceScheme('https');
+
 Route::get('/', 'WebController@index');
 Route::get('users/carts', 'CartController@index')->name('carts.index');
 
