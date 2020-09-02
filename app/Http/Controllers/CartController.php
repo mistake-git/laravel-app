@@ -23,6 +23,12 @@ class CartController extends Controller
 
         foreach ($cart as $c) {
             $total += $c->qty * $c->price;
+            
+            if($c->options->carriage) {
+                $total += ($c->qty * ($c->price + env('CARRIAGE')));
+            } else {
+                $total += $c->qty * $c->price;
+            }
         }
 
         return view('carts.index', compact('cart', 'total'));
@@ -44,6 +50,9 @@ class CartController extends Controller
                 'qty' => $request->qty, 
                 'price' => $request->price, 
                 'weight' => $request->weight, 
+                'options' => [
+                    'carriage' => $request->carriage
+                ]
             ] 
         );
 
