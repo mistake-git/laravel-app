@@ -10,7 +10,6 @@
 
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-
                 <div class="form-group row">
                     <label for="name" class="col-md-5 col-form-label text-md-left">氏名<span class="ml-1 samazon-require-input-label"><span class="samazon-require-input-label-text">必須</span></span></label>
 

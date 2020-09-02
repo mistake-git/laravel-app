@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Overtrue\LaravelFavorite\Traits\Favoriter;
 
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use Notifiable, Favoriter;
     public function sendEmailVerificationNotification()
